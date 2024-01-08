@@ -1,0 +1,39 @@
+import java.util.*;
+public class Main {
+    public static void main(String[] args) {
+        HashMap<Integer, String> hm = new HashMap<>();
+        hm.put(21, "regex");
+        hm.put(45, "hello");
+        hm.put(67, "hii");
+        hm.put(23, "show");
+        // getting value of a key from the hashmap
+        System.out.println(hm.get("regex"));
+
+        // removing a pair from the hashmap
+        hm.remove(21);
+        System.out.println("removed value"+hm);
+
+        // changing a value key int the hashmap
+        int keyToreplace=45;
+        String newValue="updateHello";
+        replaceValue(hm, keyToreplace, newValue);
+
+        // get all keys in the hashmap
+        // getting values in the hashmap
+        Iterator<Map.Entry<Integer,String>> iterator=hm.entrySet().iterator();
+        while(iterator.hasNext()){
+            Map.Entry<Integer, String>entry=iterator.next();
+            Integer key=entry.getKey();
+            String value =entry.getValue();
+            System.out.println("key:"+key+""+"Value:"+value);
+        }
+
+        // checking if a key in the hashmap
+        // adding a new wntry onlt if the new key does not exist
+        // getting all entries in the hashmap
+
+    }
+    private static void  replaceValue(HashMap<Integer, String> map, int key, String newValue){
+        map.replace(key, newValue);
+    }
+}
