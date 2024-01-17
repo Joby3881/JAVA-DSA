@@ -1,0 +1,208 @@
+create tree
+import java.util.Scanner;
+class Node{
+   Node left,right;
+   int data;
+   public Node(int data){
+       this.data=data;
+   }
+}
+public class Main {
+   static Scanner sc=new Scanner(System.in);
+   static Node creattree(){
+       Node root=null;
+       System.out.println("enter the num");
+       int data=sc.nextInt();
+       if (data==-1)
+           return null;
+
+       root =new Node(data);
+       System.out.println("enter the data");
+       root.left=creattree();
+
+       System.out.println("enter the data");
+       root.right=creattree();
+
+       return root;
+
+   }
+   public static void main(String[] args) {
+       creattree();
+   }
+}
+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+inorder,preorder and postorder
+import java.util.Scanner;
+class Node {
+    Node left, right;
+    int data;
+
+    public Node(int data) {
+        this.data = data;
+    }
+}
+public class Main{
+    public static int height(Node root) {
+        if (root == null)
+            return 0;
+        return Math.max(height(root.left), height(root.right)) + 1;
+    }
+    static Scanner sc = null;
+    public static void main(String[] args) {
+        sc = new Scanner(System.in);
+
+        Node root = createTree();
+        inOrder(root);
+        System.out.println();
+        preOrder(root);
+        System.out.println();
+        postOrder(root);
+        System.out.println();
+    }
+
+    static Node createTree() {
+
+        Node root = null;
+        System.out.println("Enter data: ");
+        int data = sc.nextInt();
+
+        if(data == -1) return null;
+
+        root = new Node(data);
+
+        System.out.println("Enter left for " + data);
+        root.left = createTree();
+
+        System.out.println("Enter right for "+ data);
+        root.right = createTree();
+
+        return root;
+    }
+
+    static void inOrder(Node root) {
+        if(root == null) return;
+
+        inOrder(root.left);
+        System.out.print(root.data+" ");
+        inOrder(root.right);
+    }
+    static void preOrder(Node root) {
+        if(root == null) return;
+        System.out.print(root.data+" ");
+        preOrder(root.left);
+        preOrder(root.right);
+    }
+    static void postOrder(Node root) {
+        if(root == null) return;
+        postOrder(root.left);
+        postOrder(root.right);
+        System.out.print(root.data+" ");
+    }
+}
+4 3 2 1 7 6 5
+1 2 3 4 5 6 7
+4 3 2 7 6 5 1
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+class Node {
+    Node left, right;
+    int data;
+
+    public Node(int data) {
+        this.data = data;
+    }
+}
+ public class Main {
+
+    public static int height(Node root) {
+        if (root == null) {
+            return 0;
+        } else {
+            int leftHeight = height(root.left);
+            int rightHeight = height(root.right);
+
+            return Math.max(leftHeight, rightHeight) + 1;
+        }
+    }
+
+    public static void main(String[] args) {
+
+        Node root = new Node(1);
+        root.left = new Node(2);
+        root.right = new Node(3);
+        root.left.left = new Node(4);
+        root.left.right = new Node(5);
+
+        int treeHeight = height(root);
+        System.out.println("Height of the binary tree: " + treeHeight);
+    }
+}
+Height of the binary tree: 3
+----------------------------------------------------------------------------------------------------------------------
+class Node {
+    Node left, right;
+    int data;
+
+    public Node(int data) {
+        this.data = data;
+    }
+}
+public class Main {
+    public static int findMaxValue(Node root) {
+        if (root == null) {
+            return Integer.MIN_VALUE;
+        } else {
+            int currentValue = root.data;
+            int leftMax = findMaxValue(root.left);
+            int rightMax = findMaxValue(root.right);
+
+            return Math.max(currentValue, Math.max(leftMax, rightMax));
+        }
+    }
+
+    public static void main(String[] args) {
+        Node root = new Node(1);
+        root.left = new Node(2);
+        root.right = new Node(3);
+        root.left.left = new Node(4);
+        root.left.right = new Node(5);
+
+        int treeMaxValue = findMaxValue(root);
+        System.out.println("Largest value in the binary tree: " + treeMaxValue);
+    }
+}
+Largest value in the binary tree: 5
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+class Node {
+    Node left, right;
+    int data;
+
+    public Node(int data) {
+        this.data = data;
+    }
+}
+
+public class Main {
+
+    public static int findSize(Node root) {
+        if (root == null) {
+            return 0; 
+        } else {
+            int leftSize = findSize(root.left);
+            int rightSize = findSize(root.right);
+
+            return leftSize + rightSize + 1;
+        }
+    }
+
+    public static void main(String[] args) {
+        Node root = new Node(1);
+        root.left = new Node(2);
+        root.right = new Node(3);
+        root.left.left = new Node(4);
+        root.left.right = new Node(5);
+
+        int treeSize = findSize(root);
+        System.out.println("Size of the binary tree: " + treeSize);
+    }
+}
+size is five
