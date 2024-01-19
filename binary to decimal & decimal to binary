@@ -1,0 +1,39 @@
+////binary to decimalz
+//import java.util.Scanner;
+//public class Main {
+//    public static void main(String[] args) {
+//        Scanner sc=new Scanner(System.in);
+//        int num=sc.nextInt();
+//        int ans=0;
+//        int p=1;
+//
+//        while (num>0){
+//            int digit=num%10;
+//            ans=ans+(digit*p);
+//            num=num/10;
+//            p*=2;
+//
+//        }
+//        System.out.println(ans);
+//    }
+//}
+
+//binary to decimal
+//import java.util.Scanner;
+//public class Main {
+//    public static void main(String[] args) {
+//        Scanner sc=new Scanner(System.in);
+//        int num=sc.nextInt();
+//        int ans=0;
+//        int p=1;
+//
+//        while (num>0){
+//            int digit=num%2;
+//            ans+=(digit*p);
+//
+//            p*=10;
+//            num=num/2;
+//        }
+//        System.out.println(ans);
+//    }
+//}
